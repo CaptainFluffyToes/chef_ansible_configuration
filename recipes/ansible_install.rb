@@ -18,7 +18,10 @@ apt_update 'Updates Apt' do
   action :update
 end
 
-apt_package 'ansible' do
-	package_name 'ansible'
-	action :install
+installs = ['python2.7', 'ansible']
+
+installs.each do |install|
+	package install do
+	  action :install
+	end
 end
